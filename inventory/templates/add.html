@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="main" class="wrapper">
+    <div class="inner">
+        
+        <h1 class="major">New Part</h1>
+        <div class=box alt">
+            <div class="row gtr-uniform">
+                <div class="col-12">
+                    <form method="POST" action="">
+                        {{form.hidden_tag()}}
+                    
+                    <table>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{form.partno.label}}</td>
+                                <td>{{form.partno}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{form.serialno.label}}</td>
+                                <td>{{form.serialno}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{form.quantity.label}}</td>
+                                <td>{{form.quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{form.multi_serial.label}}</td>
+                                <td>{{form.multi_serial}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{form.submit}}
+                </form>
+                </div>
+
+            </div>
+        </div>
+        
+</div>
+</section>
+{% endblock %}
