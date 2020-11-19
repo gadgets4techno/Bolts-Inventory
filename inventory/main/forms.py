@@ -10,3 +10,9 @@ class NewPartForm(FlaskForm):
     # multi_serial=BooleanField("Multi serial?", validators=[DataRequired()])
     multi_serial=SelectField("Multi Serial?", choices=[("false", "False"),("true", "True")], validators=[DataRequired()])
     submit=SubmitField("Submit")
+
+class NavForm(FlaskForm):
+    add = SubmitField(label="Add")
+    querybox = StringField(label="Query Field")
+    query = SubmitField(label="Query")
+    edit = SubmitField(label="Edit")

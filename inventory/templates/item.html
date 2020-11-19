@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for each in result %}
+<h1 class="major">Part #{{each["part"]}}</h1>
+<!-- <h2>$count in stock</h2> -->
+<section>
+<h2>Part Name</h2>
+<i><h3>Nickname</h3></i>
+<p>Part Details</p>
+<p>Location</p>
+<a class="button">Locate</a>
+<hr>
+
+<table>
+    <thead>
+        <th>Field</th>
+        <th>Details</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>DB #</td>
+            <td>{{each["part"]}}</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td>{{each["quantity"]}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+</section>
+
+
+{% endfor %}
+{% endblock %}
+        

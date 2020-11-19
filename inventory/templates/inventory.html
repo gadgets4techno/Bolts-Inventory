@@ -1,34 +1,51 @@
 {% extends "layout.html" %}
 {% block content %}
-<section id="main" class="wrapper">
-    <div class="inner">
+<h1 class="major">Inventory</h1>
+<!-- <div class=box alt"> -->
+    <!-- <div class="row gtr-uniform"> -->
+        <!-- <div class="col-12"> -->
+            
+            <table>
+                <thead>
+                <form method="POST" action="">
+                        {{form.hidden_tag()}}
+                    <th>{{form.querybox}}</th>
+                    <th>{{form.query}}</th>
+                    <!-- <th>{{form.add}}</th> -->
+                </form>
+                </thead>
+                </table>
+                <hr>
 
-<table id="test class="table table-hover table-striped table-bordered">
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+
+<table id="test" class="table table-hover table-striped table-bordered">
     <thead>
         <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Quantity</th>
+                <th>Details</th>
         </tr>
         </thead>
         <tbody>
+            {% for each in table %}
+            <form method="POST" action="">
+                {{form.hidden_tag()}}
             <tr>
-                <td>1</td>
-                <td>Screw</td>
-                <td>#5 screw</td>
-                <td>7</td>
+                <td>{{each}}</td>
+                <td>{{table[each]["part"]}}</td>
+                <td>{{table[each]["description"]}}</td>
+                <td>{{table[each]["quantity"]}}</td>
+                
+                <td><a class="button" href="/item/{{table[each]["part"]}}">Details</a></td>
+                </form>
             </tr>
+            {% endfor %}
         </tbody>
 </table>
-</div>
-</section>
 
-<script>
-
-$(document).ready(function() {
-    $('#test').DataTable();
-} );
-$().DataTable();
-</script>
 {% endblock %}

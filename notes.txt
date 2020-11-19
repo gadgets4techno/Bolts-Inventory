@@ -1,2 +1,6 @@
 https://www.datatables.net/
 https://www.shanelynn.ie/asynchronous-updates-to-a-webpage-with-flask-and-socket-io/
+
+
+https://cloud.ibm.com/docs/cloud-foundry?topic=cloud-foundry-getting-started-python
+https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH

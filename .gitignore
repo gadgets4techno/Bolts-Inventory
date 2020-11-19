@@ -123,3 +123,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.cfignore
+inventory/main/vcap-local.json
+inventory/templates/test.html
