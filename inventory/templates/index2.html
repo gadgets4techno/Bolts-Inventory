@@ -6,6 +6,10 @@
     <div class="row gtr-uniform">
         <div class="col-12">
             <ul class="menu">
+                {% if not current_user.is_authenticated %}
+                <li>{{ current_user.id }}</li>
+                <li><a href="https://slack.com/oauth/v2/authorize?user_scope=identity.basic,identity.email,identity.team,identity.avatar&client_id=180212104129.1523038263222"><img alt=""Sign in with Slack"" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a></li>
+                {% endif %}
                 <li><a class="button" href="/inventory">View Inventory</a></li>
                 <li><a class="button" href="/location">View Locations</a></li>
                 <li><a class="button" href="/add">Add Item</a></li>

@@ -1,0 +1,16 @@
+{
+    "ok": True,
+    "app_id": "A01FD147R6J",
+    "authed_user": {
+        "id": "U7H0ERWF2",
+        "scope": "identity.basic,identity.email,identity.avatar,identity.team",
+        "access_token": "xoxp-180212104129-255014880512-1548863357220-5931056d8f4b77cef691f573fcdc4508",
+        "token_type": "user"
+    },
+    "team": {
+        "id": "T5A68323T"
+    },
+    "enterprise": None,
+    "is_enterprise_install": False
+}
+User.getSlack(f,id="U7H0ERWF2")

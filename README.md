@@ -7,4 +7,5 @@ Baltimore Bolts Inventory System
 
 ## Libraries
 * [Flask](https://github.com/pallets/flask)
-* [python-cloudant](https://github.com/cloudant/python-cloudant)
+* [Cloudant Python Client](https://github.com/cloudant/python-cloudant)
+* [Bolt for Python](https://github.com/slackapi/bolt-python)
