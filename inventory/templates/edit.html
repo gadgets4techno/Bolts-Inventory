@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="major">New Part</h1>
+
+<h1 class="major">Edit Part</h1>
 <div class="">
     <div class="row gtr-uniform">
         <div class="col-12">
@@ -15,19 +16,19 @@
                     <tbody>
                         <tr>
                             <td>{{form.partName.label}}</td>
-                            <td>{{form.partName}}</td>
+                            <td>{{form.partName(value=item["name"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.partNickname.label}}</td>
-                            <td>{{form.partNickname}}</td>
+                            <td>{{form.partNickname(value=item["nickname"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.partType.label}}</td>
-                            <td>{{form.partType}}</td>
+                            <td>{{form.partType(value=item["partType"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.part.label}}</td>
-                            <td>{{form.part(value=num, placeholder=num)}}</td>
+                            <td>{{form.part(value=item["part"])}}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -35,31 +36,35 @@
                         </tr>
                         <tr>
                             <td>{{form.partMfg.label}}</td>
-                            <td>{{form.partMfg}}</td>
+                            <td>{{form.partMfg(value=item["partMfg"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.partno.label}}</td>
-                            <td>{{form.partno}}</td>
+                            <td>{{form.partno(value=item["partNo"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.quantity.label}}</td>
-                            <td>{{form.quantity}}</td>
+                            <td>{{form.quantity(value=item["quantity"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.serialno.label}}</td>
-                            <td>{{form.serialno}}</td>
+                            <td>{{form.serialno(value=item["serial"])}}</td>
                         </tr>
                         <tr>
                             <td>{{form.multi_serial.label}}</td>
-                            <td>{{form.multi_serial}}</td>
+                            <td>{{form.multi_serial(value=item["multi_serial"])}}</td>
                         </tr>
                         <tr>
                             <td><label for="location">Location</label></td>
                             <td>
                                 <select id="location" name="location" required="">
                                     {% for each in loc %}
-                                    <option value="" disabled selected hidden required></option>
+                                    <!-- <option value="" disabled selected hidden required></option> -->
+                                    {% if each == r %}
+                                    <option value="{{each["_id"]}}" selected>{{each["name"]}}</option>
+                                    {% else %}
                                     <option value="{{each["_id"]}}">{{each["name"]}}</option>
+                                    {% endif %}
                                     {% endfor %}
                                 </select>
                             </td>

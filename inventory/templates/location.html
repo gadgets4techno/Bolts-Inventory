@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="major">Location Edit</h1>
+<div class=box alt">
+    <div class="row gtr-uniform">
+        <div class="col-12">
+            <form method="POST" action="">
+
+                <table>
+                    <thead>
+                        <th>Location</th>
+                        <th>Item Count</th>
+                        <th>Edit</th>
+                    </thead>
+                    <tbody>
+                        {% for each in locs %}
+                        <tr>
+                            <td>{{ each["name"] }}</td>
+                            <td></td>
+                            <td><input id="{{ each["_id"] }}" name="{{ each["_id"] }}" type="submit" value="Delete" class="button fit"></input></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</div>
+<section>
+    <h2>Add Location</h2>
+    <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <table>
+            <thead>
+                <th>Field</th>
+                <th>Value</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{form.placeid.label}}</td>
+                    <td>{{form.placeid}}</td>
+                </tr>
+                <tr>
+                    <td>{{form.name.label}}</td>
+                    <td>{{form.name}}</td>
+                </tr>
+                <tr>
+                    <td>{{form.description.label}}</td>
+                    <td>{{form.description}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>{{form.submit}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</section>
+
+{% endblock %}

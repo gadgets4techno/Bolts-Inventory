@@ -1,28 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    
-<table class="table table-hover table-striped table-bordered">
-    <thead>
-        <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Number</th>
-                <th>Edit</th>
-        </tr>
-        </thead>
-</table>
+<section>
+    <a href="/"><h1 class="major">Dashboard</h1></a>
+    <div class="row gtr-uniform">
+        <div class="col-12">
+            <ul class="menu">
+                <li><a class="button" href="/inventory">View Inventory</a></li>
+                <li><a class="button" href="/location">View Locations</a></li>
+                <li><a class="button" href="/add">Add Item</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-<div class="features">
-    <section>
-        <span>200</span>
-        <h3>Inventory Count</h3>									
-    </section>
-    <section>
-        <span>200</span>
-        <h3>Inventory Count</h3>									
-    </section>
-</div>
+<p></p>
+
+<section>
+    <div class="features">
+        <section>
+            <span>N/A</span>
+            <h3>Inventory Index</h3>
+        </section>
+        <section>
+            <span>N/A</span>
+            <h3>Unsorted Items</h3>
+        </section>
+    </div>
+</section>
 <p></p>
 
 {% endblock %}

@@ -1,36 +1,61 @@
 {% extends "layout.html" %}
 {% block content %}
-{% for each in result %}
-<h1 class="major">Part #{{each["part"]}}</h1>
-<!-- <h2>$count in stock</h2> -->
-<section>
-<h2>Part Name</h2>
-<i><h3>Nickname</h3></i>
-<p>Part Details</p>
-<p>Location</p>
-<a class="button">Locate</a>
-<hr>
 
-<table>
-    <thead>
-        <th>Field</th>
-        <th>Details</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>DB #</td>
-            <td>{{each["part"]}}</td>
-        </tr>
-        <tr>
-            <td>Quantity</td>
-            <td>{{each["quantity"]}}</td>
-        </tr>
-    </tbody>
-</table>
-<hr>
+<h1 class="major">Part #{{result["part"]}}</h1>
+
+<section>
+    <h2>{{result["name"]}}</h2>
+    <i>
+        <h3>{{result["nickname"]}}</h3>
+    </i>
+    <p>{{result["description"]}}</p>
+    <p>Location - {{each}}</p>
+
+    <hr>
+
+    <section>
+        <h2 class="">Options</h2>
+        <form method="POST" action="">
+            {{delForm.hidden_tag()}}
+            <ul class="actions">
+                <li><a class="button">Locate</a></li>
+                <li><a href="/edit/{{result["part"]}}" class="button">Edit</a></li>
+                <li>{{delForm.delete}}</li>
+            </ul>
+        </form>
+
+    </section>
+
+    <section>
+        <h2>Raw Data</h2>
+        <table>
+            <thead>
+                <th>Field</th>
+                <th>Value</th>
+            </thead>
+            <tbody>
+                {% if result["multi-serial"] == True %}
+                    {% for each in result %}
+                        <tr>
+                            <td>{{each}}</td>
+                            <td>{{result[each]}}</td>
+                        </tr>
+                    {% endfor %}
+
+                {% else %}
+                    {% for each in result %}
+                        <tr>
+                            <td>{{each}}</td>
+                            <td>{{result[each]}}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+    <hr>
+
 </section>
 
 
-{% endfor %}
 {% endblock %}
-        

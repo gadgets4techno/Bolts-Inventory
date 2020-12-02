@@ -1,0 +1,7 @@
+---
+applications:
+ - name: Bolts-Inventory
+   random-route: false
+   memory: 128M
+   routes:
+    - route: boltstoolbox.mybluemix.net

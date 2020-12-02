@@ -4,3 +4,8 @@ https://www.shanelynn.ie/asynchronous-updates-to-a-webpage-with-flask-and-socket
 
 https://cloud.ibm.com/docs/cloud-foundry?topic=cloud-foundry-getting-started-python
 https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH
+
+https://docs.couchdb.org/en/stable/api/database/find.html#find-expressions
+https://docs.couchdb.org/en/stable/api/database/find.html#find-combination-operators
+
+http://nosql.se/blog/2011/09/15/couchdb-maximum-database-size/

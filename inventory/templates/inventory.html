@@ -1,51 +1,53 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="major">Inventory</h1>
-<!-- <div class=box alt"> -->
-    <!-- <div class="row gtr-uniform"> -->
-        <!-- <div class="col-12"> -->
-            
-            <table>
-                <thead>
-                <form method="POST" action="">
-                        {{form.hidden_tag()}}
-                    <th>{{form.querybox}}</th>
-                    <th>{{form.query}}</th>
-                    <!-- <th>{{form.add}}</th> -->
-                </form>
-                </thead>
-                </table>
-                <hr>
+<a href="/inventory"><h1 class="major">Inventory</h1></a>
+<form method="POST" action="">
+    {{form.hidden_tag()}}
+    <div class="row gtr-uniform">
+        <div class="col-12">
+            <ul class="menu">
+                <li><a class="button" href="add">Add Item</a></li>
+                <li><a class="button" href="location">Edit Locations</a></li>
+            </ul>
+        </div>
+        <div class="col-8 col-12-small">
+            {{form.querybox(placeholder="ID # or attribute")}}
+        </div>
+        <div class="col-4 col-12-small">
+            {{form.query}}
+        </div>
 
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
+    </div>
+</form>
+<hr>
 
-<table id="test" class="table table-hover table-striped table-bordered">
+<table id="test" class="alt table table-hover table-striped table-bordered">
     <thead>
         <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Details</th>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Quantity</th>
+            <th>Details</th>
         </tr>
-        </thead>
-        <tbody>
-            {% for each in table %}
-            <form method="POST" action="">
-                {{form.hidden_tag()}}
+    </thead>
+    <tbody>
+        {% for each in table %}
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
             <tr>
                 <td>{{each}}</td>
-                <td>{{table[each]["part"]}}</td>
-                <td>{{table[each]["description"]}}</td>
+                <td>{{table[each]["_id"]}}</td>
+                <td>{{table[each]["name"]}}</td>
+                <td></td>
                 <td>{{table[each]["quantity"]}}</td>
-                
+
                 <td><a class="button" href="/item/{{table[each]["part"]}}">Details</a></td>
-                </form>
-            </tr>
-            {% endfor %}
-        </tbody>
+        </form>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

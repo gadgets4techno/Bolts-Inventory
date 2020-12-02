@@ -126,3 +126,6 @@ dmypy.json
 .cfignore
 inventory/main/vcap-local.json
 inventory/templates/test.html
+.vscode/settings.json
+TODO.md
+notes.txt
