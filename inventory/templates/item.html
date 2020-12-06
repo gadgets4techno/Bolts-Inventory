@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 class="major">Part #{{result["part"]}}</h1>
+<h1 class="major">Part #{{result["unit"]}}</h1>
 
 <section>
     <h2>{{result["name"]}}</h2>
@@ -9,18 +9,18 @@
         <h3>{{result["nickname"]}}</h3>
     </i>
     <p>{{result["description"]}}</p>
-    <p>Location - {{each}}</p>
+    <h2><b>Location ~ {{result["location"]}}</b></h2>
 
     <hr>
 
     <section>
         <h2 class="">Options</h2>
-        <form method="POST" action="">
+        <form id="del" method="POST" action="">
             {{delForm.hidden_tag()}}
             <ul class="actions">
-                <li><a class="button">Locate</a></li>
-                <li><a href="/edit/{{result["part"]}}" class="button">Edit</a></li>
-                <li>{{delForm.delete}}</li>
+                <li><a class="button" onclick="warning()">Locate</a></li>
+                <li><a href="/edit/{{result["unit"]}}" class="button">Edit</a></li>
+                <li><input id="delete" name="delete" type="button" onclick="confirm()" value="Delete"></li>
             </ul>
         </form>
 
@@ -35,20 +35,20 @@
             </thead>
             <tbody>
                 {% if result["multi-serial"] == True %}
-                    {% for each in result %}
-                        <tr>
-                            <td>{{each}}</td>
-                            <td>{{result[each]}}</td>
-                        </tr>
-                    {% endfor %}
+                {% for each in result %}
+                <tr>
+                    <td>{{each}}</td>
+                    <td>{{result[each]}}</td>
+                </tr>
+                {% endfor %}
 
                 {% else %}
-                    {% for each in result %}
-                        <tr>
-                            <td>{{each}}</td>
-                            <td>{{result[each]}}</td>
-                        </tr>
-                    {% endfor %}
+                {% for each in result %}
+                <tr>
+                    <td>{{each}}</td>
+                    <td>{{result[each]}}</td>
+                </tr>
+                {% endfor %}
                 {% endif %}
             </tbody>
         </table>
@@ -56,6 +56,20 @@
     <hr>
 
 </section>
-
+<script>
+    function confirm() {
+        var item = prompt("Enter item ID to confirm deletion [{{result["unit"]}}]");
+        if (item != null) {
+            if (item == {{ result["unit"] }}) {
+            document.getElementById("del").submit();
+            }
+        }
+    }
+</script>
+<script>
+    function warning() {
+        alert("Find Coach Ethan to find this feature!");
+    }
+</script>
 
 {% endblock %}

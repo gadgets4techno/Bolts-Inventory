@@ -26,8 +26,12 @@
                             <td>{{form.partType}}</td>
                         </tr>
                         <tr>
-                            <td>{{form.part.label}}</td>
-                            <td>{{form.part(value=num, placeholder=num)}}</td>
+                            <td>{{form.unit.label}}</td>
+                            <td>{{form.unit(value=num, placeholder=num)}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.description.label}}</td>
+                            <td>{{form.description}}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -54,15 +58,32 @@
                             <td>{{form.multi_serial}}</td>
                         </tr>
                         <tr>
-                            <td><label for="location">Location</label></td>
-                            <td>
-                                <select id="location" name="location" required="">
-                                    {% for each in loc %}
-                                    <option value="" disabled selected hidden required></option>
-                                    <option value="{{each["_id"]}}">{{each["name"]}}</option>
-                                    {% endfor %}
-                                </select>
-                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{form.location.label}}</td>
+                            <td>{{form.location}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.locationWall.label}}</td>
+                            <td>{{form.locationWall}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.obj.label}}</td>
+                            <td>{{form.obj}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.shelfNum.label}}</td>
+                            <td>{{form.shelfNum(value=1)}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.shelfLevel.label}}</td>
+                            <td>{{form.shelfLevel(value=1)}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{form.quadrant.label}}</td>
+                            <td>{{form.quadrant(value=0)}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 <a href="/about"><h1 class="major">About</h1></a>
-<p>Inventory system created by The Baltimore Bolts. TL:DR</p>
+<p>Inventory system created by The Baltimore Bolts.</p>
 <p>Visit us: <a href="http://baltimorebolts.com" target="_blank">Baltimore Bolts Website</a></p>
 
 <section>
-    <h2>Edit</h2>
+    <h2>Site Admin</h2>
     <ul class="actions">
-        <li><a href="#" class="button fit">Settings</a></li>
-        <li><a href="#" class="button fit">Locations</a></li>
+        <li><a class="button" onclick="warning()">Settings</a></li>
     </ul>
 </section>
+<script>
+    function warning() {
+        alert("Feature not yet available!");
+    }
+</script>
 {% endblock %}

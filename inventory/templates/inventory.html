@@ -7,11 +7,11 @@
         <div class="col-12">
             <ul class="menu">
                 <li><a class="button" href="add">Add Item</a></li>
-                <li><a class="button" href="location">Edit Locations</a></li>
+                <li><a class="button" href="locate">Locate Item</a></li>
             </ul>
         </div>
         <div class="col-8 col-12-small">
-            {{form.querybox(placeholder="ID # or attribute")}}
+            {{form.querybox(placeholder="ID # or Location")}}
         </div>
         <div class="col-4 col-12-small">
             {{form.query}}
@@ -40,10 +40,10 @@
                 <td>{{each}}</td>
                 <td>{{table[each]["_id"]}}</td>
                 <td>{{table[each]["name"]}}</td>
-                <td></td>
+                <td>{{table[each]["location"]}}</td>
                 <td>{{table[each]["quantity"]}}</td>
 
-                <td><a class="button" href="/item/{{table[each]["part"]}}">Details</a></td>
+                <td><a class="button" href="/item/{{table[each]["_id"]}}">Details</a></td>
         </form>
         </tr>
         {% endfor %}
