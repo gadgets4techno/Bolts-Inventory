@@ -23,15 +23,15 @@ class NewPartForm(FlaskForm):
     multi_serial = SelectField("Multi Serial?", choices=[(
         "false", "False"), ("true", "True")], validators=[DataRequired()])
     # location=None
-    rooms = [("A", "Canteen"), ("B", "Storage"), ("C", "X-Carve"), ("D", "Materials Storage"), ("E", "Wood Shop"), ("F", "Metal Cutting #1"), ("G", "Metal Cutting #2"),
-             ("H", "Parts Storage"), ("I", "Electronics"), ("J", "Old Bots"), ("K", "Fab & Assem #1"), ("L", "Fab & Assem #2"), ("M", "Micro Field"), ("N", "CAD/SW Dev")]
+    rooms = [("A", "Canteen"), ("B", "Storage"), ("C", "X-Carve"), ("D", "Materials Storage"), ("E", "Wood Shop"), ("F", "Metal Cutting Shop"), ("G", "Metal Forming Shop"),
+             ("H", "Parts Storage"), ("I", "Electronics"), ("J", "Toolbox Area"), ("K", "Fab & Assem #1"), ("L", "Fab & Assem #2"), ("M", "Micro Field"), ("N", "Office Space")]
     location = SelectField("Location", validators=[
                            DataRequired()], choices=rooms)
     walls = [("N", "North"), ("E", "East"), ("W", "West"), ("S", "South")]
     locationWall = SelectField("Wall Location", validators=[
                                DataRequired()], choices=walls)
 
-    objType = [("0", "Shop Tools & Fab"), ("1", "Finite HW"), ("2", "Electronics"),
+    objType = [("0", "Shop Tools & Fab"), ("1", "Finite Hardware"), ("2", "Electronics"),
                ("3", "Motor Materials"), ("4", "Chasis"), ("5", "Other")]
     obj = SelectField(label="Item Type", validators=[
                       DataRequired()], choices=objType)
