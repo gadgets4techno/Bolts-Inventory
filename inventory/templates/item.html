@@ -4,7 +4,6 @@
 <h1 class="major">Part #{{result["unit"]}}</h1>
 
 <section>
-    <h1>Ethan was here</h1>
     <h2>{{result["name"]}}</h2>
     <i>
         <h3>{{result["nickname"]}}</h3>
@@ -19,7 +18,7 @@
         <form id="del" method="POST" action="">
             {{delForm.hidden_tag()}}
             <ul class="actions">
-                <li><a class="button" onclick="warning()">Locate</a></li>
+                <li><a class="button" id="locButton">Locate</a></li>
                 <li><a href="/edit/{{result["unit"]}}" class="button">Edit</a></li>
                 <li><input id="delete" name="delete" type="button" onclick="confirm()" value="Delete"></li>
             </ul>
@@ -55,8 +54,161 @@
         </table>
     </section>
     <hr>
-
 </section>
+
+<div class="popupContainer">
+    <div class="popup">
+        <ol>
+            <li><h4 id="1stSentence">Go to the roomName </h4></li>
+            <li><h4 id="2ndSentence">Look to the Cradinal wall, reliative to the room</h4></li>
+            <li><h4 id="3rdSentence">From the left, locate the #st/nd/rd/th shelf stack</h4></li>
+            <li><h4 id="4thSentence">From the top locate the #st/nd/rd/th shelf</h4></li>
+            <li><h4 id="5thSentence">The item should be located some where around here:</h4></li>
+        </ol>
+        <ul>
+            <li>Blue - Estimated Location of Object</li>
+            <li>White - The shelf where the item placed</li>
+        </ul>
+        <div class="shelfBox" id="shelfBox">
+            <div class="rectangleVAR blink" id="shelfedBox"><h6>~ITEM</h6></div>
+            <div class="rectangle">SHELF</div>
+        </div>
+        <hr>
+        
+       <div class="makeCenter">
+            <a class="button fit bottomPad" id="exitPopup" href="">Found It!</a>
+            <a href="/edit/{{result["unit"]}}" class="button primary fit">This item is not here...</a>
+       </div>        
+    </div>
+</div>
+
+<script>
+    document.getElementById("locButton").addEventListener("click",function(){
+        document.querySelector(".popupContainer").style.display = "flex";
+        var code= "{{result["location"]}}";
+
+        // Sentence making
+        // document.getElementById("1stSentence").innerHTML = "New text!";
+        // Sentence 1
+
+        if (code[2] == "A"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Canteen";
+        }
+        if (code[2] == "B"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Storage Room";
+        }
+        if (code[2] == "C"){
+            document.getElementById("1stSentence").innerHTML = "Go to the X-Carve Room";
+        }
+        if (code[2] == "D"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Materials Storage Room"; 
+        }
+        if (code[2] == "E"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Wood Shop"; 
+        }
+        if (code[2] == "F"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Metal Shop"; 
+        }
+        if (code[2] == "G"){
+           document.getElementById("1stSentence").innerHTML = "Go to the Metal Forming Room"; 
+        }
+        if (code[2] == "H"){
+           document.getElementById("1stSentence").innerHTML = "Go to the Parts Room"; 
+        }
+        if (code[2] == "I"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Electronics Room";
+        }
+        if (code[2] == "J"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Toolbox Area";
+        }
+        if (code[2] == "K"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Fab Assembly Room #1";
+        }
+        if (code[2] == "L"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Fab Assembly Room #2";
+        }
+        if (code[2] == "M"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Micro Field";
+        }
+        if (code[2] == "N"){
+            document.getElementById("1stSentence").innerHTML = "Go to the Office Space";
+        }
+
+        // Cardinal Direction
+        
+        if (code[3] == "N"){
+            document.getElementById("2ndSentence").innerHTML = "Look to the North wall, relative to entering the room";
+        }
+        if (code[3] == "S"){
+            document.getElementById("2ndSentence").innerHTML = "Look to the South wall, relative to entering the room";
+        }
+        if (code[3] == "E"){
+            document.getElementById("2ndSentence").innerHTML = "Look to the East wall, relative to entering the room";
+        }
+        if (code[3] == "W"){
+            document.getElementById("2ndSentence").innerHTML = "Look to the West wall, relative to entering the room";
+        }
+
+        // Shelf stack 
+        var shelfStackNum = code[4]
+        if (code[4] == "1"){
+            
+            document.getElementById("3rdSentence").innerHTML = "From the left, locate the 1st shelf stack";
+        }
+        if (code[4] == "2"){
+            document.getElementById("3rdSentence").innerHTML = "From the left, locate the 2nd shelf stack";
+        }
+        if (code[4] == "3"){
+            document.getElementById("3rdSentence").innerHTML = "From the left, locate the 3rd shelf stack";
+        }
+        if (code[4] >= "4"){
+            window.alert("clear")
+            document.getElementById("3rdSentence").innerHTML = "From the left, locate the " + shelfStackNum +"th shelf stack";
+        }
+
+        // Shelf level
+         // Shelf stack 
+         var shelflvlNum = code[5]
+        if (code[5] == "1"){
+            document.getElementById("4thSentence").innerHTML = "From the top, locate the 1st shelf";
+        }
+        if (code[5] == "2"){
+            document.getElementById("4thSentence").innerHTML = "From the top, locate the 2nd shelf";
+        }
+        if (code[5] == "3"){
+            document.getElementById("4thSentence").innerHTML = "From the top, locate the 3rd shelf ";
+        }
+        if (code[5] >= "4"){
+            window.alert("clear")
+            document.getElementById("4thSentence").innerHTML = "From the top, locate the " + shelflvlNum +"th shelf";
+        }
+
+
+        // Shelf GUI
+        if (code[6] == "1"){
+            document.getElementById("shelfedBox").style.setProperty("left", "0%") ;
+        }
+        if (code[6] == "2"){
+            document.getElementById("shelfedBox").style.left = "25%" ;
+        }
+        if (code[6] == "3"){
+            document.getElementById("shelfedBox").style.left = "50%";
+        }
+        if (code[6] == "4"){
+            document.getElementById("shelfedBox").style.left = "75%";
+        }
+
+        
+
+
+    })
+
+    document.getElementById("exitPopup").addEventListener("click",function(){
+        document.querySelector(".shelfBox").style.display = "none";
+    })
+
+</script>
+
 <script>
     function confirm() {
         var item = prompt("Enter item ID to confirm deletion [{{result["unit"]}}]");
