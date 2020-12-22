@@ -76,13 +76,30 @@
         <hr>
         
        <div class="makeCenter">
-            <a class="button fit bottomPad" id="exitPopup" href="">Found It!</a>
+            <a class="button fit bottomPad" id="nextPopup" onmousedown="hearMe();">Found It!</a>
             <a href="/edit/{{result["unit"]}}" class="button primary fit">This item is not here...</a>
-       </div>        
+       </div>
     </div>
 </div>
 
+<div class="popupContainer2">
+    <div class="popup2">
+       <div class="makeCenter">
+           <h2>Remember to update quantity <br> if you are taking something</h2>
+           <hr>
+            <a class="button fit bottomPad" id="exitPopup" id="startAuto"  href="/edit/{{result["unit"]}}"> Update Quantity</a>
+            <a href=""  class="button primary fit"> Im just here to check something</a>
+       </div>
+    </div>
+</div>
+
+
 <script>
+      
+
+// Show main location pop up ( Not here --> edit.html || Found it!)
+
+            // Not here
     document.getElementById("locButton").addEventListener("click",function(){
         document.querySelector(".popupContainer").style.display = "flex";
         var code= "{{result["location"]}}";
@@ -208,11 +225,19 @@
 
 
     })
-
-    document.getElementById("exitPopup").addEventListener("click",function(){
-        document.querySelector(".shelfBox").style.display = "none";
+            //  Found it!
+    document.getElementById("nextPopup").addEventListener("click",function(){
+        document.querySelector(".popupContainer").style.display = "none";
+        document.querySelector(".popupContainer2").style.display = "flex";
     })
 
+
+//Found it ( should prompt: (I was just looking || Update quantity) )
+
+        //  I was just looking
+document.getElementById("exitPopup").addEventListener("click",function(){
+        document.querySelector(".shelfBox").style.display = "none";
+    })
 </script>
 
 <script>
